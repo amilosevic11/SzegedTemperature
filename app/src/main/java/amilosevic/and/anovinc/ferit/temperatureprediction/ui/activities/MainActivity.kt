@@ -1,4 +1,4 @@
-package amilosevic.and.anovinc.ferit.temperatureprediction.ui
+package amilosevic.and.anovinc.ferit.temperatureprediction.ui.activities
 
 import amilosevic.and.anovinc.ferit.temperatureprediction.R
 import androidx.appcompat.app.AppCompatActivity

@@ -1,5 +1,8 @@
 package amilosevic.and.anovinc.ferit.temperatureprediction.api
 
+import amilosevic.and.anovinc.ferit.temperatureprediction.models.Inputs
+import retrofit2.http.Body
+import retrofit2.http.Header
 import retrofit2.http.POST
 import retrofit2.http.Query
 
@@ -8,7 +11,8 @@ interface AzureML {
     fun predictTemperature(
         @Query("api-version") apiVersion: String,
         @Query("format") format: String,
-        @Query("Content-type") contentType: String,
-        @Query("Authorization") auth: String
+        @Header("Content-type") contentType: String,
+        @Header("Authorization:") auth: String,
+        @Body input: Inputs
     )
 }
