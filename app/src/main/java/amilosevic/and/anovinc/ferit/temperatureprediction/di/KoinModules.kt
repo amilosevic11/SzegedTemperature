@@ -28,8 +28,10 @@ val networkModule = module {
 }
 
 fun provideOkHttpClient(authInterceptor: AuthInterceptor): OkHttpClient {
-    val logging: HttpLoggingInterceptor = HttpLoggingInterceptor()
-    logging.setLevel(HttpLoggingInterceptor.Level.BODY)
+
+    val logging: HttpLoggingInterceptor = HttpLoggingInterceptor().apply {
+        setLevel(HttpLoggingInterceptor.Level.BODY)
+    }
 
     return OkHttpClient().newBuilder()
         .addInterceptor(authInterceptor)

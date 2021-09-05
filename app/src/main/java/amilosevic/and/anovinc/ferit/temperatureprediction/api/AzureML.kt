@@ -7,12 +7,9 @@ import retrofit2.http.POST
 import retrofit2.http.Query
 
 interface AzureML {
+
     @POST("execute")
-    fun predictTemperature(
-        @Query("api-version") apiVersion: String,
-        @Query("format") format: String,
-        @Header("Content-type") contentType: String,
-        @Header("Authorization:") auth: String,
+    suspend fun predictTemperature(
         @Body input: Inputs
     )
 }

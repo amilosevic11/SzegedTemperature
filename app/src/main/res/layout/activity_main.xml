@@ -6,13 +6,50 @@
     android:layout_height="match_parent"
     tools:context=".ui.activities.MainActivity">
 
-    <TextView
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_humidity"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/et_wind_speed"
+        android:hint="@string/enter_humidity"
+        android:gravity="center"
+        android:inputType="numberDecimal"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_wind_speed"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/et_visibility"
+        app:layout_constraintTop_toBottomOf="@id/et_humidity"
+        android:hint="@string/enter_wind_speed"
+        android:gravity="center"
+        android:inputType="numberDecimal"/>
+
+    <androidx.appcompat.widget.AppCompatEditText
+        android:id="@+id/et_visibility"
+        android:layout_width="320dp"
+        android:layout_height="40dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toTopOf="@id/btn_predict"
+        app:layout_constraintTop_toBottomOf="@id/et_wind_speed"
+        android:hint="@string/enter_visibility_km"
+        android:gravity="center"
+        android:inputType="numberDecimal"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/btn_predict"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/et_visibility"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:text="@string/predict_temperature"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

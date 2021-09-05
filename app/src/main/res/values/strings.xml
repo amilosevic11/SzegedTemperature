@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">TemperaturePrediction</string>
+    <string name="enter_humidity">Enter humidity (%):</string>
+    <string name="enter_wind_speed">Enter wind speed (km/h):</string>
+    <string name="enter_visibility_km">Enter visibility (km):</string>
+    <string name="predict_temperature">PREDICT TEMPERATURE</string>
 </resources>
