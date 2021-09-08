@@ -4,4 +4,6 @@
     <string name="enter_wind_speed">Enter wind speed (km/h):</string>
     <string name="enter_visibility_km">Enter visibility (km):</string>
     <string name="predict_temperature">PREDICT TEMPERATURE</string>
+    <string name="predicted_temperature">Predicted temperature:</string>
+    <string name="ok">OK</string>
 </resources>

@@ -1,9 +1,12 @@
 package amilosevic.and.anovinc.ferit.temperatureprediction.ui.activities
 
 import amilosevic.and.anovinc.ferit.temperatureprediction.databinding.ActivityMainBinding
+import amilosevic.and.anovinc.ferit.temperatureprediction.ui.dialog.ResultDialog
 import amilosevic.and.anovinc.ferit.temperatureprediction.ui.viewmodels.MainActivityViewModel
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
@@ -32,6 +35,16 @@ class MainActivity : AppCompatActivity() {
                 }
             }
         }
+
+        viewModel.temperaturePredictionResponse.observe(this, {
+            val builder = AlertDialog.Builder(this)
+            builder.setTitle("Predicted temperature: ")
+            builder.setMessage(it.Results.output1.value.Values[0][0])
+            builder.setPositiveButton(android.R.string.ok) { dialog, which ->
+                dialog.dismiss()
+            }
+            builder.show()
+        })
 
         super.onCreate(savedInstanceState)
         setContentView(binding.root)

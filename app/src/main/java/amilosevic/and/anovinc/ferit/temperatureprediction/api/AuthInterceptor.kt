@@ -32,26 +32,6 @@ class AuthInterceptor : Interceptor {
 
         return chain.proceed(req)
 
-//        var request = chain.request()
-//
-//        try {
-//            request = chain.request().also {
-//                Log.d("connecting", "AuthInterceptor")
-//                it.newBuilder()
-//                    .addHeader("Authorization:", "Bearer phJidOzPd2Lv6eZpu/yj6g6Roe5sgqCvhOyhEB1vI6BDuIlf225PHSwdQYb0RFaQqV9JLBPdAv8KC60A4YZZYA==")
-//                    .build()
-//                Log.d("IDon'tknow", "If_it_is_Connected")
-//            }
-//
-//            val url = request.url.newBuilder().build()
-//            request = request.newBuilder().url(url).build()
-//            return chain.proceed(request)
-//        }
-//        catch (e: Exception) {
-//            e.printStackTrace()
-//        }
-//
-//        return chain.proceed(request = request)
     }
 
 }
