@@ -7,6 +7,7 @@ import android.os.Bundle
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
+import org.json.JSONObject
 import org.koin.androidx.viewmodel.ext.android.viewModel
 
 class MainActivity : AppCompatActivity() {
@@ -18,26 +19,21 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater).also {
 
-            val humidity = it.etHumidity.text.toString()
-            val windSpeed = it.etWindSpeed.text.toString()
-            val visibility = it.etVisibility.text.toString()
+            val binding = it
 
             it.btnPredict.setOnClickListener {
-                CoroutineScope(Dispatchers.Default).launch {
-                    viewModel.temperaturePrediction(addData(humidity, windSpeed, visibility))
+
+                val humidity = binding.etHumidity.text.toString()
+                val windSpeed = binding.etWindSpeed.text.toString()
+                val visibility = binding.etVisibility.text.toString()
+
+                CoroutineScope(Dispatchers.IO).launch {
+                    viewModel.predict(humidity, windSpeed, visibility)
                 }
             }
         }
 
         super.onCreate(savedInstanceState)
         setContentView(binding.root)
-    }
-
-    private fun addData(
-        humidity: String,
-        windSpeed: String,
-        visibility: String
-    ): ArrayList<String> {
-        return arrayListOf("0", humidity, windSpeed, visibility)
     }
 }

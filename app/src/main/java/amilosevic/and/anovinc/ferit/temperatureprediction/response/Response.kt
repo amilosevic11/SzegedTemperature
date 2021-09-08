@@ -1,6 +1,5 @@
 package amilosevic.and.anovinc.ferit.temperatureprediction.response
 
-data class Output1(
-    val type: String,
-    val value: Value
+data class Response(
+    val Results: Results
 )

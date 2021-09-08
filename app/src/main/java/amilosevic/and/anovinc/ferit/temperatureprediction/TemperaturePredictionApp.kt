@@ -1,7 +1,7 @@
 package amilosevic.and.anovinc.ferit.temperatureprediction
 
 import amilosevic.and.anovinc.ferit.temperatureprediction.di.appModules
-import amilosevic.and.anovinc.ferit.temperatureprediction.di.networkModule
+import amilosevic.and.anovinc.ferit.temperatureprediction.di.networkingModule
 import amilosevic.and.anovinc.ferit.temperatureprediction.di.viewModelModules
 import android.app.Application
 import android.content.Context
@@ -20,7 +20,7 @@ class TemperaturePredictionApp : Application() {
 
         startKoin {
             androidContext(this@TemperaturePredictionApp)
-            modules(listOf(appModules, viewModelModules, networkModule))
+            modules(listOf(appModules, viewModelModules, networkingModule))
         }
     }
 }
