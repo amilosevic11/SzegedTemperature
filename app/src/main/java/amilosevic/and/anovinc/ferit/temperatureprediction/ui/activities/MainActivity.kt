@@ -12,6 +12,8 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.launch
 import org.json.JSONObject
 import org.koin.androidx.viewmodel.ext.android.viewModel
+import java.math.RoundingMode
+import java.text.DecimalFormat
 
 class MainActivity : AppCompatActivity() {
 
@@ -37,9 +39,15 @@ class MainActivity : AppCompatActivity() {
         }
 
         viewModel.temperaturePredictionResponse.observe(this, {
+
+            val temp = it.Results.output1.value.Values[0][0].toDouble()
+
+            val df = DecimalFormat("#.###")
+            df.roundingMode = RoundingMode.CEILING
+
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Predicted temperature: ")
-            builder.setMessage(it.Results.output1.value.Values[0][0])
+            builder.setMessage("${df.format(temp)} °C")
             builder.setPositiveButton(android.R.string.ok) { dialog, which ->
                 dialog.dismiss()
             }
