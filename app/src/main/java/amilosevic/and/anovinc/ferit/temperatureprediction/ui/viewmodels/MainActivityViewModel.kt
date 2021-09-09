@@ -39,9 +39,9 @@ class MainActivityViewModel(private val temperaturePredictionRepo: TemperaturePr
         val sampleRequest = SampleRequest(Inputs(Input(colNames, values)), globalParameters)
 
         val response = temperaturePredictionRepo.predict(sampleRequest = sampleRequest)
-        Log.d("responsitj", response.toString())
+        Log.d("responsitj", response.Results.output1.value.Values.get(0).get(4).toString())
 
-        val temperature = response.Results.output1.value.Values[0][0]
+        val temperature = response.Results.output1.value.Values[0][4]
         _temperature.postValue(temperature.toDouble())
 
         Log.d("prebaciajde", _temperature.value.toString())

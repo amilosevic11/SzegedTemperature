@@ -28,7 +28,9 @@ class MainActivity : AppCompatActivity() {
 
             it.btnPredict.setOnClickListener {
 
-                val humidity = binding.etHumidity.text.toString()
+                var humidity = binding.etHumidity.text.toString()
+                humidity = (humidity.toDouble() / 100).toString()
+
                 val windSpeed = binding.etWindSpeed.text.toString()
                 val visibility = binding.etVisibility.text.toString()
 
@@ -40,7 +42,7 @@ class MainActivity : AppCompatActivity() {
 
         viewModel.temperaturePredictionResponse.observe(this, {
 
-            val temp = it.Results.output1.value.Values[0][0].toDouble()
+            val temp = it.Results.output1.value.Values[0][4].toDouble()
 
             val df = DecimalFormat("#.###")
             df.roundingMode = RoundingMode.CEILING
@@ -48,7 +50,7 @@ class MainActivity : AppCompatActivity() {
             val builder = AlertDialog.Builder(this)
             builder.setTitle("Predicted temperature: ")
             builder.setMessage("${df.format(temp)} °C")
-            builder.setPositiveButton(android.R.string.ok) { dialog, which ->
+            builder.setPositiveButton(android.R.string.ok) { dialog, _ ->
                 dialog.dismiss()
             }
             builder.show()

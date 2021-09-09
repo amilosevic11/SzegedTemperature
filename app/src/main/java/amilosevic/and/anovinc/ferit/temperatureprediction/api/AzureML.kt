@@ -8,7 +8,7 @@ import retrofit2.http.Query
 
 interface AzureML {
 
-    @POST("88a1a7916bef4c4ba6679d0e2d4612dc/services/ba39fbc75f954d9b9b54b5e40af18c77/execute?api-version=2.0&details=true")
+    @POST("88a1a7916bef4c4ba6679d0e2d4612dc/services/357023f0c09b4915bf346018e1307d52/execute?api-version=2.0&details=true")
     suspend fun predictTemperature(
         @Body sampleRequest: SampleRequest
     ) : Response
